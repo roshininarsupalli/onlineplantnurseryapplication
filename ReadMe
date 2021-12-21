@@ -1,0 +1,342 @@
+MySQL
+Db Records :
+ create database capgaws;
+ use capgaws;
+ 
+ *******************************Carts:************************
++---------+---------+------+-----+---------+-------+
+| Field   | Type    | Null | Key | Default | Extra |
++---------+---------+------+-----+---------+-------+
+| cart_id | int(11) | NO   | PRI | NULL    |       |
+| price   | double  | NO   |     | NULL    |       |
++---------+---------+------+-----+---------+-------+
+
+insert into cart values('1','550');
+Get :
+http://localhost:9001/cart/getAll
+
+POST:Add Records
+http://localhost:9001/cart/
+ {
+    "cart_id": 2,
+    "price": "650"
+    
+}
+
+put:Update Record
+http://localhost:9001/cart/
+Select Body : and raw
+
+ {
+    "cart_id": 3,
+    "price": "750"
+    
+}
+
+Delete:
+http://localhost:9001/cart/
+Select Body : and raw
+{
+    "cart_id": 2,
+    "price": "650"
+    
+}
+
+
+
+**********************Orders:********************************************************
++------------------+--------------+------+-----+---------+-------+
+| Field            | Type         | Null | Key | Default | Extra |
++------------------+--------------+------+-----+---------+-------+
+| booking_order_id | int(11)      | NO   | PRI | NULL    |       |
+| order_date       | date         | YES  |     | NULL    |       |
+| price            | double       | NO   |     | NULL    |       |
+| quantity         | int(11)      | NO   |     | NULL    |       |
+| transaction_mode | varchar(255) | YES  |     | NULL    |       |
++------------------+--------------+------+-----+---------+-------+
+
+insert into orders values('1','2/12/21','552','5','Taransaction successfully');
+
+Get :
+http://localhost:9001/order/getAll
+
+POST:Add Records
+http://localhost:9001/order/
+ {
+    "booking_order_id": 2,
+    "order_date": "20/12/21",
+    "price": 950,
+    "quantity": 5,
+    "transaction_mode" :"Done"
+
+
+    
+}
+put:Update Record
+http://localhost:9001/order/
+Select Body : and raw
+ {
+    "booking_order_id": 3,
+    "order_date": 20/12/21,
+    "price": "950",
+    "quantity": "5",
+    "transaction_mode" :"Done"
+
+
+    
+}
+
+Delete:
+http://localhost:9001/order/
+Select Body : and raw
+ {
+    
+    "order_date": 20/12/21
+    
+}
+
+
+*************************************************************planters:********************************
++------------------+--------------+------+-----+---------+-------+
+| Field            | Type         | Null | Key | Default | Extra |
++------------------+--------------+------+-----+---------+-------+
+| planter_id       | int(11)      | NO   | PRI | NULL    |       |
+| drinage_holes    | int(11)      | NO   |     | NULL    |       |
+| planter_capacity | int(11)      | NO   |     | NULL    |       |
+| planter_color    | int(11)      | NO   |     | NULL    |       |
+| planter_cost     | int(11)      | NO   |     | NULL    |       |
+| planter_shape    | varchar(255) | YES  |     | NULL    |       |
+| planter_stock    | int(11)      | NO   |     | NULL    |       |
+| planterheight    | float        | NO   |     | NULL    |       |
++------------------+--------------+------+-----+---------+-------+
+
+insert into planters values('101','250','5','555','Round','10','5.2');
+
+Get :
+http://localhost:9001/planters/getAll
+
+POST:Add Records
+http://localhost:9001/planters/
+{
+  "planter_id ":1,
+  "drinage_holes" :250,
+  "planter_capacity":5,
+  "planter_cost":555,
+   "planter_shape":"Round",
+   "planter_stock":55,
+   "planterheight":3.2
+
+}
+
+put:Update Record
+http://localhost:9001/planters/
+Select Body : and raw
+
+{
+
+  "planter_id ":3
+}
+
+Delete:
+http://localhost:9001/planters/
+Select Body : and raw
+{
+"planter_id ":3
+}
+
+
+
+
+*****************************************************plants:*************************************
++---------------------------+--------------+------+-----+---------+-------+
+| Field                     | Type         | Null | Key | Default | Extra |
++---------------------------+--------------+------+-----+---------+-------+
+| plant_id                  | int(11)      | NO   | PRI | NULL    |       |
+| bloom_time                | varchar(255) | YES  |     | NULL    |       |
+| common_name               | varchar(255) | YES  |     | NULL    |       |
+| difficulty_level          | varchar(255) | YES  |     | NULL    |       |
+| medicinal_or_culinary_use | varchar(255) | YES  |     | NULL    |       |
+| plant_cost                | double       | NO   |     | NULL    |       |
+| plant_description         | varchar(255) | YES  |     | NULL    |       |
+| plant_height              | int(11)      | YES  |     | NULL    |       |
+| plant_spread              | varchar(255) | YES  |     | NULL    |       |
+| plant_stock               | int(11)      | YES  |     | NULL    |       |
+| temperature               | varchar(255) | YES  |     | NULL    |       |
+| type_of_plant             | varchar(255) | YES  |     | NULL    |       |
++---------------------------+--------------+------+-----+---------+-------+
+
+insert into plants values('1','WINTER',''for beauty','EASY','cough','252','Ground plant','2.5','warm','50','25','flowering plant');
+
+Get :
+http://localhost:9001/plants /getAll
+
+POST:Add Records
+http://localhost:9001/plants/
+{
+"plant_id":2,
+"bloom_time":"WINTER",
+"common_name":"XYZ",
+"difficulty_level" :"EASY",
+"medicinal_or_culinary_use":"ABC",
+"plant_cost" :950 ,  
+"plant_description":"XYZ",
+"plant_height":4.3,
+"plant_spread":"pqq",
+"plant_stock" :55,
+"temperature":20,
+"type_of_plant":"flowering plant"                                                                                                                                                   
+
+}
+
+put:Update Record
+http://localhost:9001/plants/
+Select Body : and raw
+{
+"difficulty_level" :"EASY"
+}
+Delete:
+http://localhost:9001/plants/
+Select Body : and raw
+{
+"plant_cost" :950
+}
+
+*****************************************************address:********************************
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| address_id | int(11)      | NO   | PRI | NULL    |       |
+| city       | varchar(255) | YES  |     | NULL    |       |
+| colony     | varchar(255) | YES  |     | NULL    |       |
+| houseno_pk | varchar(255) | YES  |     | NULL    |       |
+| pincode    | int(11)      | NO   |     | NULL    |       |
+| state      | varchar(255) | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+
+inset into address values('101','Solapur','Gandi Nagar','3c','413005','Maharashtra');
+
+Get :
+http://localhost:9001/address/getAll
+
+POST:Add Records
+http://localhost:9001/address/
+{
+"address_id":111,
+"city":"Chennai",
+"colony":"Tnagar",
+"houseno_pk":"5c",
+"pincode":522208,
+"state":"Tamil Nadu"
+}
+
+put:Update Record
+http://localhost:9001/address/
+Select Body : and raw
+{
+"city":"Vizag"
+}
+
+Delete:
+http://localhost:9001/address/
+Select Body : and raw
+{
+"address_id":101,
+}
+
+*********************************************************customers:****************************************
++----------------+--------------+------+-----+---------+-------+
+| Field          | Type         | Null | Key | Default | Extra |
++----------------+--------------+------+-----+---------+-------+
+| customer_id    | int(11)      | NO   | PRI | NULL    |       |
+| customer_email | varchar(255) | YES  |     | NULL    |       |
+| customer_name  | varchar(255) | YES  |     | NULL    |       |
+| password       | varchar(255) | YES  |     | NULL    |       |
+| username       | varchar(255) | YES  |     | NULL    |       |
+| houseno_fk     | int(11)      | YES  | MUL | NULL    |       |
++----------------+--------------+------+-----+---------+-------+
+
+insert into customers values('412','xyz@gmail.com','XYZ','1234XYZ','ABC','3c');
+Get :
+http://localhost:9001/customers/getAll
+
+POST:Add Records
+http://localhost:9001/customers/
+{
+"customer_id":6, 
+"customer_email":"ABC@1999",
+"customer_name ":"ABC",
+"password":"ABC!@#",
+"username":"XYZ",
+"houseno_fk":"4a"                
+ 
+}
+
+put:Update Record
+http://localhost:9001/customers/
+Select Body : and raw
+{
+"customer_email":"ABC@GMAIL.COM"
+}
+
+Delete:
+http://localhost:9001/customers/
+Select Body : and raw
+{
+"customer_id":412
+}
+
+
+********************************************************seeds:*********************************
+
++-------------------+--------------+------+-----+---------+-------+
+| Field             | Type         | Null | Key | Default | Extra |
++-------------------+--------------+------+-----+---------+-------+
+| seed_id           | int(11)      | NO   | PRI | NULL    |       |
+| bloom_time        | varchar(255) | YES  |     | NULL    |       |
+| common_name       | varchar(255) | YES  |     | NULL    |       |
+| difficulty_level  | varchar(255) | YES  |     | NULL    |       |
+| seeds_cost        | double       | NO   |     | NULL    |       |
+| seeds_description | varchar(255) | YES  |     | NULL    |       |
+| seeds_per_packet  | int(11)      | YES  |     | NULL    |       |
+| seeds_stock       | int(11)      | YES  |     | NULL    |       |
+| temperature       | varchar(255) | YES  |     | NULL    |       |
+| type_of_seeds     | varchar(255) | YES  |     | NULL    |       |
+| watering          | varchar(255) | YES  |     | NULL    |       |
++-------------------+--------------+------+-----+---------+-------+
+
+insert into seeds values('123','MONSOON','Grape','normal','250','Ground','300','30','25','Vegetable','YES');
+Get :
+http://localhost:9001/seeds/getAll
+
+POST:Add Records
+http://localhost:9001/seeds/
+{
+"seed_id":501,
+"bloom_time":"WINTER",        
+"common_name":"XYZ",
+"difficulty_level":"NORMAL",  
+"seeds_cost": 1000,
+"seeds_description":"sdjahsd",
+"seeds_per_packet":523,
+"seeds_stock":89,     
+"temperature":24,   
+"type_of_seeds": "Flower",  
+"watering":"YES"            
+ 
+}
+
+put:Update Record
+http://localhost:9001/seeds/
+Select Body : and raw
+{
+"type_of_seeds": "Vegetable"
+}
+
+Delete:
+http://localhost:9001/seeds/
+Select Body : and raw
+{
+"seed_id":501
+}
+
+ 
